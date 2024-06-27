@@ -87,10 +87,11 @@
     enable = true;
     xwayland.enable = true;
   };
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   hardware.opengl.enable = true;
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dakota = {
@@ -127,19 +128,23 @@
 
     bat
     curl
+    dunst
     fzf
     gcc
     git
     gnumake
     gum
     jq
+    libnotify
     parallel
     python3
     ripgrep
+    rofi-wayland
     rsync
     rustup
     shellcheck
     shellcheck
+    swww # Wallpaper
     tmux
     unzip
     watchexec
