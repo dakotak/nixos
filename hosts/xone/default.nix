@@ -83,9 +83,14 @@
   programs.zsh.enable = true;
   programs.git.enable = true;
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  hardware.opengl.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dakota = {
@@ -117,27 +122,28 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
     bat
+    curl
     fzf
+    gcc
+    git
+    gnumake
     gum
     jq
     parallel
     python3
     ripgrep
+    rsync
+    rustup
     shellcheck
-    zstd
-    watchexec
     shellcheck
     tmux
-    xclip
-    gnumake
-    gcc
-    rustup
     unzip
-    curl
-    rsync
+    watchexec
+    waybar
+    wget
+    xclip
+    zstd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
