@@ -22,6 +22,9 @@
                 inherit specialArgs;
                 system = "x86_64-linux";
                 modules = [
+                    home-manager.nixosModules.home-manager{
+                        home-manager.extraSpecialArgs = specialArgs;
+                    }
                     ./hosts/xone
                 ];
             };
